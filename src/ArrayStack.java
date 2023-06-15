@@ -21,27 +21,27 @@ public class ArrayStack<T extends Cloneable> implements Stack, Cloneable {
             ArrayStack<T> temp = (ArrayStack<T>) super.clone();
             temp.headIndex = this.headIndex;
             temp.maxCapacity = this.maxCapacity;
-//            Class c = ;
-//            stackArray[0].
-//            Method m = c.getMethods();
-//            temp.stackArray = c[2].invoke(this.stackArray);
-//            if(headIndex != -1)
-//                temp.stackArray = (T[]) (stackArray[0].getClass().getMethod("clone").invoke(this.stackArray));
             temp.stackArray = this.stackArray.clone();
-//            for(int i = 0 ; i < temp.headIndex; i++){
-//                T t = (T) new Cloneable();
-//                temp.stackArray[i] = this.stackArray[i];
-//            }
+            for(int i = 0; i < temp.stackArray.length; i++){
+                if(temp.stackArray[i] != null){
+                    temp.stackArray[i] = (T) temp.stackArray[i].getClass().getMethod("clone")
+                            .invoke(temp.stackArray[i]);
+                }
+            }
+
             return temp;
         }
         catch (CloneNotSupportedException e) {
             return null;
-//        } catch (InvocationTargetException e) {
-//            throw new RuntimeException(e);
-//        } catch (IllegalAccessException e) {
-//            throw new RuntimeException(e);
-//        } catch (NoSuchMethodException e){
-//            throw new RuntimeException(e);
+        }
+        catch (InvocationTargetException e) {
+            throw new RuntimeException(e);
+        }
+        catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+        catch (NoSuchMethodException e) {
+            throw new RuntimeException(e);
         }
     }
 
