@@ -1,16 +1,16 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.*;
 
-public class Playlist {
-    ArrayList<Song> playlist = new ArrayList<Song>();
+public class Playlist implements FilteredSongIterable, OrderedSongIterable, Cloneable{
+    ArrayList<Song> list = new ArrayList<Song>();
+    
     public void addSong(Song s) throws SongAlreadyExistsException{
         boolean song_in_playlist = false;
-        for(Song song: this.playlist){
+        for(Song song: this.list){
             if(song.equals(s) && !song_in_playlist)
                 song_in_playlist = true;
         }
         if(!song_in_playlist){
-            this.playlist.add(s);
+            this.list.add(s);
         }
         else{
             throw new SongAlreadyExistsException();
@@ -18,9 +18,9 @@ public class Playlist {
     }
 
     public boolean removeSong(Song s){
-        for(Song song: this.playlist){
+        for(Song song: this.list){
             if(song.equals(s)){
-                playlist.remove(song);
+                list.remove(song);
                 return true;
             }
         }
@@ -30,13 +30,15 @@ public class Playlist {
     @Override
     public String toString() {
         String str = "[";
-        for(Song s: this.playlist){
-            if(s.equals(this.playlist.get(this.playlist.size()-1))){
-                str += s.toString();
+        for(Song s: this.list){
+            str += "(";
+            if(s.equals(this.list.get(this.list.size()-1))){
+                str += s.toString() + ")";
             }
             else{
-                str += s.toString() +", ";
+                str += s.toString() +"), ";
             }
+
         }
         return str + "]";
     }

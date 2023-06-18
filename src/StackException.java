@@ -3,4 +3,8 @@ public class StackException extends RuntimeException{
         super();
     }
 
+    public StackException(String message){
+        super(message);
+    }
+
 }
