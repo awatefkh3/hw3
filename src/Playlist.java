@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Playlist implements FilteredSongIterable, OrderedSongIterable, Cloneable{
     ArrayList<Song> list = new ArrayList<Song>();
+    Playlist tempPlaylist = this.clone();
     
     public void addSong(Song s) throws SongAlreadyExistsException{
         boolean song_in_playlist = false;
@@ -11,6 +12,7 @@ public class Playlist implements FilteredSongIterable, OrderedSongIterable, Clon
         }
         if(!song_in_playlist){
             this.list.add(s);
+            this.tempPlaylist.list.add(s);
         }
         else{
             throw new SongAlreadyExistsException();
@@ -21,6 +23,7 @@ public class Playlist implements FilteredSongIterable, OrderedSongIterable, Clon
         for(Song song: this.list){
             if(song.equals(s)){
                 list.remove(song);
+                this.tempPlaylist.list.remove(song);
                 return true;
             }
         }
