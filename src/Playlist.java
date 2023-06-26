@@ -1,9 +1,14 @@
 import java.util.*;
 
 public class Playlist implements FilteredSongIterable, OrderedSongIterable, Cloneable{
-    ArrayList<Song> list = new ArrayList<Song>();
-    Playlist tempPlaylist = this.clone();
-    
+    ArrayList<Song> list = new ArrayList<Song>(); /** playlist list */
+    Playlist tempPlaylist = this.clone(); /** temporary playlist */
+
+    /**
+     * adds a song to the playlist list
+     * @param s the song we want to add
+     * @throws SongAlreadyExistsException when trying to add an existing song
+     */
     public void addSong(Song s) throws SongAlreadyExistsException{
         boolean song_in_playlist = false;
         for(Song song: this.list){
@@ -19,6 +24,11 @@ public class Playlist implements FilteredSongIterable, OrderedSongIterable, Clon
         }
     }
 
+    /**
+     * removes a song from the playlist list
+     * @param s the song we want to remove
+     * @return true if the song is in the playlist, false otherwise
+     */
     public boolean removeSong(Song s){
         for(Song song: this.list){
             if(song.equals(s)){
@@ -30,6 +40,10 @@ public class Playlist implements FilteredSongIterable, OrderedSongIterable, Clon
         return false;
     }
 
+    /**
+     * describes the playlist and the songs in it
+     * @return String - describes the playlist
+     */
     @Override
     public String toString() {
         String str = "[";
