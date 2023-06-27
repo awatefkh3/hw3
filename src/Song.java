@@ -1,9 +1,15 @@
+/**
+ * Represents a song
+ */
 public class Song implements Cloneable{
-
-    protected String name;/** name of the song */
-    protected String artist;/** name of the artist */
-    protected Genre genre;/** genre of the song */
-    protected int duration;/** duration of the song */
+    /** name of the song */
+    protected String name;
+    /** name of the artist */
+    protected String artist;
+    /** genre of the song */
+    protected Genre genre;
+    /** duration of the song */
+    protected int duration;
 
     enum Genre{
         /** enum fields*/

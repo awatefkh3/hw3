@@ -1,3 +1,6 @@
+/**
+ * Represents song already exist exception
+ */
 public class SongAlreadyExistsException extends RuntimeException{
     /**
      * a constructor for the exception. thrown if the song given is already in the playlist.

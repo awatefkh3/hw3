@@ -1,3 +1,6 @@
+/**
+ * Represents an empty stack exception
+ */
 public class EmptyStackException extends StackException{
     /**
      * a constructor for the exception. thrown if the stack is empty.

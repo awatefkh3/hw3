@@ -1,3 +1,7 @@
+/**
+ * Represents a Stack's methods
+ * @param <E> stack's type parameter
+ */
 public interface Stack<E extends Cloneable> extends Iterable<E>, Cloneable {
     /**
      * pushes an element into the stack.

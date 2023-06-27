@@ -1,3 +1,6 @@
+/**
+ * Represents a stack exception
+ */
 public class StackException extends RuntimeException{
     /**
      * a constructor for the exception. thrown if there is an exception in regard to the stack.

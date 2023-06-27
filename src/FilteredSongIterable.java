@@ -1,3 +1,6 @@
+/**
+ * Represents iterable of filtered songs
+ */
 public interface FilteredSongIterable extends Iterable<Song> {
     /**
      * filters by artist - keeps the songs that has the same genre as the parameter artist

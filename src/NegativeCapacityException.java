@@ -1,3 +1,6 @@
+/**
+ * Represents negative capacity exception
+ */
 public class NegativeCapacityException extends StackException{
     /**
      * a constructor for the exception. thrown if the capacity given to a stack is negative.

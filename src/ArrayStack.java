@@ -2,10 +2,18 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect. *;
 import java.util.Iterator;
 
+/**
+ * Represents an ArrayStack
+ * @param <T> ArrayStack type parameter
+ */
 public class ArrayStack<T extends Cloneable> implements Stack, Cloneable {
+    /** maximum capacity of the stack */
     protected int maxCapacity;
-    protected T[] stackArray;/** stack of elements from type T */
-    protected int headIndex;/** the index of the first */
+    /** stack of elements from type T */
+    protected T[] stackArray;
+    /** the index of the first */
+    protected int headIndex;
+
 
     /**
      * Constructor that recieves the max capacity and creates an ArrayStack.
@@ -129,8 +137,13 @@ public class ArrayStack<T extends Cloneable> implements Stack, Cloneable {
         return new StackIterator(this);
     }
 
+    /**
+     * Represents a stack iterator
+     * @param <T> stack iterator type parameter
+     */
     public class StackIterator<T> implements Iterator<T>{
-        ArrayStack arrayStack;/** the arrayStack over which it iterates.*/
+        /** the arrayStack over which it iterates.*/
+        ArrayStack arrayStack;
 
         /**
          * constructor for the stackIterator

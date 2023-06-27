@@ -1,3 +1,6 @@
+/**
+ * Represents stack overflow exception
+ */
 public class StackOverflowException extends StackException{
     /**
      * a constructor for the exception. thrown if the stack overflows.

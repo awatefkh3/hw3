@@ -1,8 +1,13 @@
 import java.util.*;
 
+/**
+ * Represent a playlist of songs
+ */
 public class Playlist implements FilteredSongIterable, OrderedSongIterable, Cloneable{
-    ArrayList<Song> list = new ArrayList<Song>(); /** playlist list */
-    Playlist tempPlaylist = this.clone(); /** temporary playlist */
+    /** playlist list */
+    ArrayList<Song> list = new ArrayList<Song>();
+    /** temporary playlist */
+    Playlist tempPlaylist = this.clone();
 
     /**
      * adds a song to the playlist list
